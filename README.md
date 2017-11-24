@@ -1,11 +1,29 @@
 # Stencil
 
 ## Introduction
-Stencil is a golfing language which is barely more than a thin cover for [Dyalog APL](https://www.dyalog.com/)'s ⌺ [Stencil operator](http://help.dyalog.com/16.0/Content/Language/Primitive%20Operators/Stencil.htm). Stencil code can in fact easily be translated to normal Dyalog APL.
+Stencil is a thin cover for [Dyalog APL](https://www.dyalog.com/)'s ⌺ [Stencil operator](http://help.dyalog.com/16.0/Content/Language/Primitive%20Operators/Stencil.htm) and is intended as golfing language and an easy interface for common tasks involving `⌺`. Stencil code can in fact easily be rewritten as normal Dyalog APL code.
 
 Feel free to contact me, [Adám](https://stackexchange.com/users/3114363/ad%C3%A1m), in Stack Exchange's [APL chat room](https://chat.stackexchange.com/rooms/52405/apl) to learn more about Stencil and Dyalog APL.
 
-## User guide
+## In-APL Usage
+
+Execute `2⎕FIX'file://path/Stencil.dyalog` to load the operator.
+
+The syntax is `result←opts (code Stencil specs) input`, but `opts` is optional.
+
+For the specifics of [`opts`](https://github.com/abrudz/Stencil/blob/master/README.md#command-line-options), [`code`](https://github.com/abrudz/Stencil/blob/master/README.md#code), and [`specs`](https://github.com/abrudz/Stencil/blob/master/README.md#arguments), see the linked guidance for the corresponding TIO fields.
+
+Input is an array specifying the initial state.
+
+| `opts` | `result` |
+| :---: | --- |
+| none | final state or last state before going to a previously encountered state |
+| `∊` | vector of states |
+| `≢` | scalar non-negative integer |
+| `≡` | 0-by-0 numeric matrix |
+| number | a state |
+
+## TIO User guide
 
 [Try It Online](https://tio.run/#home) is a code testing website for many programming languages, both practical and recreational ones, made by Stack Exchange user [Dennis](https://codegolf.stackexchange.com/users/12012). The following describes the relevant fields when using [Stencil on TIO](https://tio.run/#stencil). 
 
@@ -24,7 +42,7 @@ This may be any of the following options:
 This describes what shall be returned for each neighbourhood. It is the body (i.e. without outer curcly braces) of a dfn left operand to 
 `⌺`. For more information about the `⌺` operator, see [its documentation](http://help.dyalog.com/16.0/Content/Language/Primitive%20Operators/Stencil.htm).
 
-Stencil provides some shortcuts not available to with original `⌺`.  All identifiers are expected to be single-letter, and no spaces are needed to separate them, i.e. `me` is equivalent to `m e`. The following values are pre-defined: used for every dimension. If no size is given, `3` will be used in every dimensize in.
+Stencil provides some shortcuts not available to with the original `⌺`.  All identifiers are expected to be single-letter, and no spaces are needed to separate them, i.e. `me` is equivalent to `m e`. The following values are pre-defined:
 
 Note that the code runs with `⎕IO←0` (0-based **I**ndex **O**rigin).
 
