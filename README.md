@@ -22,7 +22,7 @@ This may be any of the following options:
 
 ### Code
 This describes what shall be returned for each neighbourhood. It is the body (i.e. without outer curcly braces) of a dfn left operand to 
-`⌺`. See the `⌺` documentation for more information about the operator, see [its ducumentation](http://help.dyalog.com/16.0/Content/Language/Primitive%20Operators/Stencil.htm).
+`⌺`. For more information about the `⌺` operator, see [its documentation](http://help.dyalog.com/16.0/Content/Language/Primitive%20Operators/Stencil.htm).
 
 Stencil provides some shortcuts not available to with original `⌺`.  All identifiers are expected to be single-letter, and no spaces are needed to separate them, i.e. `me` is equivalent to `m e`. The following values are pre-defined: used for every dimension. If no size is given, `3` will be used in every dimensize in.
 
