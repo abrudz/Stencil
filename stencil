@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+export DYALOG=$(ls -d /opt/mdyalog/*/64/unicode | tail -1)
+export MAXWS=128M WSPATH=$DYALOG/ws
+
+cat <<- . | "$DYALOG/dyalog" -script
+	⎕PW←32767
+        2⎕FIX'file://$(dirname "$BASH_SOURCE")/Stencil.dyalog'
+	{}{⎕←'${TIO_OPTIONS[@]}'((⊃⎕NGET'.code.tio' 1)Stencil'${@:1}')⍵}¨⊃⎕NGET'.input.tio' 1
+.
