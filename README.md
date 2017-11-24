@@ -69,7 +69,7 @@ Examples:
 | `p` | number of dimensions which have been padded |
 | `⍺` | vector of amounts of padding for each dimension |
 
-In the above table, *Moore neighbordhood* means the entire n×m neighbourhood, while *van Neumann neighbourhood* means cells orthogonal to the self.
+In the above table, *Moore neighbordhood* means the entire n×m neighbourhood, while *von Neumann neighbourhood* means cells orthogonal to the self.
 
 ### Input
 Each line is an APL expression for an initial state. Each will be processed separately.
