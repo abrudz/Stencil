@@ -92,8 +92,7 @@
          body←'∊|≢'⎕R'#.STATES∊⍨⊂⍺'⊢body
          'Repeat←{'body'}'
      }
-     opts←'∊'If No opts               ⍝ how many times
-     Repeat←⍎⎕FX∘Expand If(∨/'≡∊≢'∘∊)opts
+     Repeat←⍎⎕FX∘Expand If(∨/'≡∊≢'∘∊)'∊'If No opts ⍝ how many times
 
      World←⍎'P'If No opts∩⎕A
 
