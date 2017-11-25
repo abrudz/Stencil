@@ -28,7 +28,7 @@ Input is an array specifying the initial state.
 [Try It Online](https://tio.run/#home) is a code testing website for many programming languages, both practical and recreational ones, made by Stack Exchange user [Dennis](https://codegolf.stackexchange.com/users/12012). The following describes the relevant fields when using [Stencil on TIO](https://tio.run/#stencil). 
 
 ### Command-line options
-This may be any of the following options:
+This may be any one of the following options:
 
 | opt | Effect |
 | :---: | --- |
@@ -37,6 +37,18 @@ This may be any of the following options:
 | `≢` | return number of steps needed until final state or last state before going to a previously encountered state |
 | `≡` | output states until stable, or forever if cyclic |
 | number | return the state after that many states |
+
+combined with any of the following options:
+
+| opt | Effect |
+| :---: | --- |
+| `P` | `┌───┐` Plane:<br> `│   │` left and right disconnected<br> `└───┘` lower and upper disconnected |
+| `C` | `┌───┐` Cylinder:<br> `↑   ↑` left and right joined<br> `└───┘` lower and upper disconnected |
+| `T` | `┌─→─┐` Torus:<br> `↑   ↑` left and right joined<br> `└─→─┘` lower and upper joined |
+| `M` | `┌─→─┐` Möbius strip:<br> `│   │` left and right disconnected<br> `└─←─┘` lower and upper twist-joined |
+| `K` | `┌─→─┐` Klein bottle:<br> `↑   ↑` left and right joined<br> `└─←─┘` lower and upper twist-joined |
+| `R` | `┌─→─┐` Real projective plane:<br> `↑   ↓` left and right twist-joined<br> `└─←─┘` lower and upper twist-joined |
+| `I` | `┌   ┐` Infinite:<br> `     ` left and right expand as needed<br> `└   ┘` lower and upper expand as needed |
 
 ### Code
 This describes what shall be returned for each neighbourhood. It is the body (i.e. without outer curcly braces) of a dfn left operand to 
