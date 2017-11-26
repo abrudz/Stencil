@@ -1,4 +1,4 @@
-﻿Stencil←{
+Stencil←{
      ⍺←⍬
      opts code specs input←⍺ ⍺⍺ ⍵⍵ ⍵
 
@@ -48,13 +48,14 @@
      code,←'}'
      Code←⍎⎕FX code ⍝ create left operand
 
+     Ⓔ←⊃0⍴⊂
      Pad←{                  ⍝ pad with result of given function
          (≢↑≢↓∘⍺⍺ ⍵⍵⍪⊢⍪⍵⍵)⍵
      }
      Cycle←Pad⊢             ⍝ ┌─→─┐
                             ⍝       pad top and bottom with self
                             ⍝ └─→─┘
-     Block←Pad(⊃0⍴⊂)        ⍝ ┌───┐
+     Block←Pad Ⓔ           ⍝ ┌───┐
                             ⍝       pad top and bottom with prototype
                             ⍝ └───┘ (manifold-with-boundary)
      Twist←Pad⌽             ⍝ ┌─←─┐
@@ -81,6 +82,12 @@
      R←{                    ⍝ ┌─→─┐ Real projective plane:
          ⍺⍺ Twist Ü⍉Twist ⍵ ⍝ ⍋   ⍒  left and right  twist-joined
      }                      ⍝ └─←─┘  lower and upper twist-joined
+     I←{
+         Add0s←(⍉Ⓔ,⊢,Ⓔ)⍣2           ⍝ Add layers of prototype elements
+         Rem0s←{⍉⌽⍵↓⍨+/∧\∧/⍵=Ⓔ ⍵}⍣4 ⍝ Remove layers of prototype elements
+                            ⍝ ┌─→─┐ Infinite:
+         Rem0s ⍺⍺ Add0s ⍵   ⍝ ⍋   ⍒  left and right  expand as needed
+     }                      ⍝ └─←─┘  lower and upper expand as needed
 
      #.STATES←⊂{⍵⊣⎕←⍵⍪' '}If('≡'∊opts)⊢input
      Collect←{
@@ -92,7 +99,8 @@
          body←'∊|≢'⎕R'#.STATES∊⍨⊂⍺'⊢body
          'Repeat←{'body'}'
      }
-     Repeat←⍎⎕FX∘Expand If(∨/'≡∊≢'∘∊)'∊'If No opts ⍝ how many times
+     repeat←'∊'If No opts~⎕A                 ⍝ how many times
+     Repeat←⍎⎕FX∘Expand If(∨/'≡∊≢'∘∊)repeat
 
      World←⍎'P'If No opts∩⎕A
 
