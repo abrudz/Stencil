@@ -23,6 +23,8 @@ Input is an array specifying the initial state.
 | `≡` | 0-by-0 numeric matrix |
 | number | a state |
 
+If code is a function, then identifiers may be both single- and multi-letter, and spaces are needed to separate them, i.e. `me` is *not* equivalent to `m e`, and `⎕IO` is *not* set to `0` either. However, the predefined values listed [`below`](https://github.com/abrudz/Stencil/blob/master/README.md#code) *are* available.
+
 ## TIO User guide
 
 [Try It Online](https://tio.run/#home) is a code testing website for many programming languages, both practical and recreational ones, made by Stack Exchange user [Dennis](https://codegolf.stackexchange.com/users/12012). The following describes the relevant fields when using [Stencil on TIO](https://tio.run/#stencil). 
@@ -34,7 +36,7 @@ This may be any one of the following options:
 | :---: | --- |
 | none | return final state or last state before going to a previously encountered state |
 | `∊` | return list of states from input to final state or last state before going to a previously encountered state |
-| `≢` | return number of steps needed until final state or last state before going to a previously encountered state |
+| `≢` | return the number of states in the above |
 | `≡` | output states until stable, or forever if cyclic |
 | number | return the state after that many states |
 
@@ -48,15 +50,21 @@ combined with any of the following options:
 | `M` | `┌─→─┐` Möbius strip:<br> `│   │` left and right disconnected<br> `└─←─┘` lower and upper twist-joined |
 | `K` | `┌─→─┐` Klein bottle:<br> `↑   ↑` left and right joined<br> `└─←─┘` lower and upper twist-joined |
 | `R` | `┌─→─┐` Real projective plane:<br> `↑   ↓` left and right twist-joined<br> `└─←─┘` lower and upper twist-joined |
-| `I` | `┌   ┐` Infinite:<br> `     ` left and right expand as needed<br> `└   ┘` lower and upper expand as needed |
+| `I` | `┌   ┐` Infinite:<br> `     ` left and right expand and shrink as needed<br> `└   ┘` lower and upper expand and shrink as needed |
 
 ### Code
-This describes what shall be returned for each neighbourhood. It is the body (i.e. without outer curcly braces) of a dfn left operand to 
+This describes what shall be returned for each neighbourhood. It may be a function, or one or more character vectors.
+
+If a single character vector, then this forms the body (i.e. without outer curly braces) of a dfn left operand to 
 `⌺`. For more information about the `⌺` operator, see [its documentation](http://help.dyalog.com/16.0/Content/Language/Primitive%20Operators/Stencil.htm).
+
+If two character vectors, then the first will be used as a dfn snippet (<code> ⍵</code> is appended to its right) to post-process the result(s).
+
+If three or more character vectors, then the last will additionally be used as a dfn snippet (<code> ⍵</code> is appended to its right) to pre-process the input(s).
 
 Stencil provides some shortcuts not available to with the original `⌺`.  All identifiers are expected to be single-letter, and no spaces are needed to separate them, i.e. `me` is equivalent to `m e`. The following values are pre-defined:
 
-Note that the code runs with `⎕IO←0` (0-based **I**ndex **O**rigin).
+Note that all code runs with `⎕IO←0` (0-based **I**ndex **O**rigin).
 
 Examples:
 
@@ -114,6 +122,10 @@ A cell will be alive in the next genration if there are 3 live cells either coun
 To get just the next generation, add the command-line option `1`.
 
 To list all generations, add the command-line options `∊`.
+
+To calculate the period of a cyclic pattern (an [oscillator](https://en.wikipedia.org/wiki/Oscillator_(cellular_automaton)) or a [spaceship](https://en.wikipedia.org/wiki/Spaceship_(cellular_automaton)), add the command-line options `≢I`
+
+To check whether a patter is a [still life](https://en.wikipedia.org/wiki/Still_life_(cellular_automaton)), add the command-line options `≢I` and let code be `1=` `3∊me`.
 
 ### Primality checker
 
