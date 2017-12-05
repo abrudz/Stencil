@@ -1,4 +1,4 @@
- res←{opts}(code Stencil2 specs)input;Try;Rank;rank;No;If;Axes;axes;Of;EMASK;VMASK;NMASK;SMASK;Template;Injected;Code;Post;Pre;Ⓔ;Pad;Cycle;Block;Twist;Ü;P;C;T;M;K;R;I;STATES;Collect;Expand;repeat;Repeat;World;Do;Add0s;Rem0s;⎕IO;DIM;FORE;AFT;Min1
+ res←{opts}(code Stencil specs)input;Try;Rank;rank;No;If;Axes;axes;Of;EMASK;VMASK;NMASK;SMASK;Template;Injected;Code;Post;Pre;Ⓔ;Pad;Cycle;Block;Twist;Ü;P;C;T;M;K;R;I;STATES;Collect;Expand;repeat;Repeat;World;Do;Add0s;Rem0s;⎕IO;DIM;FORE;AFT;Min1
  ⎕IO←1 ⋄ ⎕ML←1
  :If 900⌶⍬
      opts←⍬
