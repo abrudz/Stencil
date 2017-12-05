@@ -6,5 +6,5 @@ export MAXWS=128M WSPATH=$DYALOG/ws
 cat <<- . | "$DYALOG/dyalog" -script
 	⎕PW←32767
         2⎕FIX'file://$(dirname "$BASH_SOURCE")/Stencil.dyalog'
-	{}{⎕←'${TIO_OPTIONS[@]}'((⊃⎕NGET'.code.tio' 1)Stencil'${@:1}')⍵}¨⊃⎕NGET'.input.tio' 1
+	{}{⎕←'${TIO_OPTIONS[@]}'((⊃⎕NGET'$1' 1)Stencil'${@:3}')⍵}¨⊃⎕NGET'$2' 1
 .
