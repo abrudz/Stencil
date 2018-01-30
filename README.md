@@ -81,7 +81,7 @@ Examples:
 | `e` | count of non-empty cells in the above | 
 | `V` | vector of Von neumann neighbourhood with self | 
 | `v` | count of non-empty cells in the above |
-| `N` | vector of Von neumann neighbourhood with self |
+| `N` | vector of Von neumann neighbourhood without self |
 | `n` | count of non-empty cells in the above |
 | `S` | scalar self  |
 | `s` | Boolean (1 or 0) for whether above is non-empty    |
