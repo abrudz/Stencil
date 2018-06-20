@@ -81,13 +81,17 @@ Examples:
 | `e` | count of non-empty cells in the above | 
 | `V` | vector of Von neumann neighbourhood with self | 
 | `v` | count of non-empty cells in the above |
-| `N` | vector of Von neumann neighbourhood without self |
+| `N` | vector of von neumanN neighbourhood without self |
 | `n` | count of non-empty cells in the above |
 | `S` | scalar self  |
 | `s` | Boolean (1 or 0) for whether above is non-empty    |
 | `P` | vector of Booleans for each dimension whether it has been padded or not  |
 | `p` | number of dimensions which have been padded |
 | `⍺` | vector of amounts of padding for each dimension |
+| `W` | original input |
+| `w` | flattened original input |
+| `Y` | preprocessed input |
+| `y` | flattened preprocessed input |
 
 In the above table, *Moore neighbordhood* means the entire n×m neighbourhood, while *von Neumann neighbourhood* means cells orthogonal to the self.
 
