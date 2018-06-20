@@ -44,7 +44,7 @@
      S←⊃S                   ⍝ scalarise
      p←Count⊢P←0≠Ⓐ          ⍝ Padded
      w←,W                   ⍝ raw input
-     i←,I←input              ⍝ preprocessed input
+     y←,Y←input             ⍝ preprocessed input
      code←⎕NR'Code'
      :If 1=≢code
      Code←⍎⊃code
