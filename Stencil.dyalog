@@ -43,6 +43,8 @@
      s←Count⊢S←SMASK/M      ⍝ Self
      S←⊃S                   ⍝ scalarise
      p←Count⊢P←0≠Ⓐ          ⍝ Padded
+     w←,W                   ⍝ raw input
+     i←,I←input              ⍝ preprocessed input
      code←⎕NR'Code'
      :If 1=≢code
      Code←⍎⊃code
@@ -133,7 +135,7 @@
  World←⍎'P'If No opts∩⎕A
 
 ⍝ This is where the actual work happens:
- i←input←Pre w←input
+ input←Pre W←input
  STATES←⊂input
  Do←Code Injected⌺specs World Collect⍣Repeat
  STATES←∪STATES,⊂Do input
